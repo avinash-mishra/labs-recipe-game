@@ -1,16 +1,15 @@
-# Bootstrap
-app/bootstrap*
+# IDE
+.idea/
+.vagrant/
 
-# Symfony directories
+# directories
+bin/*
 vendor/*
 */logs/*
 */cache/*
 web/uploads/*
-web/bundles/*
 
 # Configuration files
-app/config/parameters.ini
-app/config/parameters.yml
 
 # Composer
 composer.phar
