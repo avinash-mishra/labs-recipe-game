@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Tnt\Controller\DefaultController;
+use Tnt\Controller\GameController;
 use Tnt\Entity\SiteFactory;
 
 $app = new Silex\Application();
@@ -53,11 +54,12 @@ $app->register(new Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider
 $app[DefaultController::class] = $app->share(function () use ($app) {
     return new DefaultController($app);
 });
-$app[SiteFactory::class] = $app->share(function () use ($app) {
-    return new SiteFactory();
+$app[GameController::class] = $app->share(function () use ($app) {
+    return new GameController($app);
 });
 
 // setting up controllers
+$app->mount('/game/', $app[GameController::class]);
 $app->mount('/', $app[DefaultController::class]);
 
 return $app;
