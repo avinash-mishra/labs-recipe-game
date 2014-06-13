@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="recipeGame">
+    <head>
+        <link href="css/style.css" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+        <script src="js/checklist-directive.js"></script>
+        <script src="js/controllers.js"></script>
+    </head>
+    <body>
+        <div class="wrapper" ng-controller="gameCtrl">
+            <h1>Recipe Game</h1>
+            <h2>Do you want to help us?</h2>
+
+            <div ng-show="requestQuestion" ng-hide="quizResult || quizFinish">
+                <p><strong>{{ $scope.requestQuestion.text }}</strong></p>
+                <div ng-repeat="answer in requestQuestion.answers">
+                    <div ng-repeat="(key, value) in answer">
+                        <span ng-show="requestQuestion.type == 'checkbox'">
+                            <input type="{{ requestQuestion.type }}" checklist-model="requestQuestion.response" checklist-value="key">{{ value }}
+                        </span>
+                        <span ng-hide="requestQuestion.type == 'checkbox'">
+                            <input ng-hide="requestQuestion.type == checkbox" type="{{ requestQuestion.type }}" ng-model="requestQuestion.response" ng-value="key">{{ value }}
+                        </span>
+                    </div>
+                </div>
+                <p>
+                    <button ng-disabled="!requestQuestion.response" ng-click="replyQuestion()">Send</button>
+                    <button ng-click="endQuiz()">End Quiz</button>
+                </p>
+            </div>
+            <div ng-show="quizResult" ng-class="quizResult.result">
+                <p>{{ quizResult.message }}</p>
+                <p>
+                    <button ng-click="continueQuiz()">Continue Quiz</button>
+                    <button ng-click="endQuiz()">End Quiz</button>
+                </p>
+            </div>
+            <div ng-show="quizFinish">
+                <p><strong>{{ quizFinish.message }}</strong></p>
+            </div>
+        </div>
+    </body>
+</html>

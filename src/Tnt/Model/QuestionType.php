@@ -4,5 +4,6 @@ namespace Tnt\Model;
 
 abstract class QuestionType
 {
-    const CHOICE = 'choice';
+    const CHOICE = 'radio';
+    const MULTICHOICE = 'checkbox';
 }

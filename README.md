@@ -20,7 +20,7 @@ To start the virtual machine:
 Sometimes it could be possible to happen an error: "SQLSTATE[HY000] [2002] Connection refused Error".
 Then restart the VM in order to flush mysql privileges.
 
-Edit your /et/hosts and add:
+Edit your /etc/hosts and add:
 
 > 192.168.56.101 recipe-game.dev www.recipe-game.dev
 

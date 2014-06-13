@@ -3,7 +3,8 @@ vagrantfile-local:
     vm:
         box: ubuntu-precise12042-x64-vbox43
         box_url: 'http://box.puphpet.com/ubuntu-precise12042-x64-vbox43.box'
-        hostname: null
+        hostname: 'recipe-game'
+        name: 'hola'
         network:
             private_network: 192.168.56.101
             forwarded_port:
@@ -15,6 +16,7 @@ vagrantfile-local:
                 modifyvm:
                     natdnshostresolver1: on
                     memory: '512'
+                    name: 'recipe-game'
                 setextradata:
                     VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
         provision:

@@ -16,11 +16,11 @@ class Question
     /** @var  Answer[] */
     private $answers;
 
-    public function __construct($name, $text, $answers)
+    public function __construct($name, $text, $type, $answers)
     {
         $this->name = $name;
         $this->text = $text;
-        $this->type = QuestionType::CHOICE;
+        $this->type = $type;
         $this->answers = $answers;
     }
 
