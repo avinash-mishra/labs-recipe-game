@@ -12,7 +12,7 @@
             <h2>Do you want to help us?</h2>
 
             <div ng-show="requestQuestion" ng-hide="quizResult || quizFinish">
-                <p><strong>{{ $scope.requestQuestion.text }}</strong></p>
+                <p><strong>{{ requestQuestion.text }}</strong></p>
                 <div ng-repeat="answer in requestQuestion.answers">
                     <div ng-repeat="(key, value) in answer">
                         <span ng-show="requestQuestion.type == 'checkbox'">
